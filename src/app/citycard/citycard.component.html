@@ -1,0 +1,75 @@
+<div>
+  <h1>City List</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>Serial No</th>
+        <th>Name</th>
+        <th>Area </th>
+        <th>Population</th>
+        <th>Country</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of cityList; let i = index">
+        <td>{{ i + 1 }}</td>
+        <td>{{ item.cname }}</td>
+        <td>{{ item.carea }}</td>
+        <td>{{ item.cpopulation }}</td>
+        <td>{{ item.caddress }}</td>
+        <td>
+          <button (click)="onEdit(item)">Edit</button>
+          <button (click)="onDelete(item.cityId)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h1>New Employee</h1>
+  <form [formGroup]="cityForm">
+    <div>
+      <label>Name</label>
+      <input type="text" formControlName="cname" />
+      <div *ngIf="cityForm.controls['cname'].touched && cityForm.controls['cname'].invalid">
+        <div *ngIf="cityForm.controls['cname'].errors?.['required']">Name is required</div>
+        <div *ngIf="cityForm.controls['cname'].errors?.['minlength']">Name must be at least 3 characters</div>
+      </div>
+    </div>
+
+    <div>
+      <label>Area</label>
+      <input type="text" formControlName="carea" />
+      <div *ngIf="cityForm.controls['carea'].touched && cityForm.controls['carea'].invalid">
+        <div *ngIf="cityForm.controls['carea'].errors?.['required']">Area is required is required</div>
+        <!-- <div *ngIf="cityForm.controls['carea'].errors?.['minlength']">Email is invalid</div> -->
+      </div>
+    </div>
+
+    <div>
+      <label>Population</label>
+      <input type="text" formControlName="cpopulation" />
+      <div *ngIf="cityForm.controls['cpopulation'].touched && cityForm.controls['cpopulation'].invalid">
+        <div *ngIf="cityForm.controls['cpopulation'].errors?.['required']">population is required</div>
+        <!-- <div *ngIf="cityForm.controls['cpopulation'].errors?.['pattern']">Contact number must be 11 digits</div> -->
+      </div>
+    </div>
+
+    <div>
+      <label>Country</label>
+      <input type="text" formControlName="caddress" />
+      <div *ngIf="cityForm.controls['caddress'].touched && cityForm.controls['caddress'].invalid">
+        <div *ngIf="cityForm.controls['caddress'].errors?.['required']">Country is required</div>
+        <div *ngIf="cityForm.controls['caddress'].errors?.['minlength']">Country must be at least 5 characters</div>
+      </div>
+    </div>
+
+    <div>
+      <button type="button" (click)="resetForm()">Reset</button>
+      <button type="button" *ngIf="!isEditMode" (click)="onSave()">Save Employee</button>
+      <button type="button" *ngIf="isEditMode" (click)="onUpdate()">Update Employee</button>
+    </div>
+  </form>
+</div>
+
+

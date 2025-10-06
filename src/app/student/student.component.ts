@@ -28,7 +28,7 @@ export class StudentComponent {
         sname : new FormControl(this.studentObj.sname,[Validators.required, Validators.minLength(3)]),
         semail: new FormControl(this.studentObj.semail,[Validators.required,Validators.email]),
         scontactno: new FormControl(this.studentObj.scontactno,[Validators.required, Validators.pattern('^[0-9]{11}$')]),
-        scgpa:new FormControl(this.studentObj.scgpa,[Validators.required,Validators.min(0),Validators.max(4)]),
+        scgpa:new FormControl(this.studentObj.scgpa,[Validators.required,Validators.min(0),Validators.max(4),Validators.pattern('^\\d(\\.\\d{1,2})?$')]),
         saddress: new FormControl(this.studentObj.saddress,[Validators.required,Validators.minLength(5)])
       });
   

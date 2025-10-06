@@ -28,7 +28,7 @@
     </tbody>
   </table>
 
-  <h6>New Employee</h6>
+  <h6>New Student</h6>
   <form [formGroup]="studentForm">
     <div>
       <label>Name</label>
@@ -63,6 +63,7 @@
       <div *ngIf="studentForm.controls['scgpa'].touched && studentForm.controls['scgpa'].invalid">
         <div *ngIf="studentForm.controls['scgpa'].errors?.['required']">CGPA is required</div>
         <div *ngIf="studentForm.controls['scgpa'].errors?.['min'] || studentForm.controls['scgpa'].errors?.['max']">CGPA in-valid</div>
+        <div *ngIf="studentForm.controls['scgpa'].errors?.['pattern']">cgpa will be only 2 deciaml point</div>
       </div>
     </div>
 

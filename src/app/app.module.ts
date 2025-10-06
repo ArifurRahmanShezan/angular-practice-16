@@ -6,12 +6,16 @@ import { AppComponent } from './app.component';
 import { EmployeeComponent } from './employee/employee.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { StudentComponent } from './student/student.component';
+import { CitycardComponent } from './citycard/citycard.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     EmployeeComponent,
-    StudentComponent
+    StudentComponent,
+    CitycardComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
