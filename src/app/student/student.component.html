@@ -1,0 +1,84 @@
+<div>
+  <h6>Student List</h6>
+  <table>
+    <thead>
+      <tr>
+        <th>Serial No</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Contact</th>
+        <th>CGPA</th>
+        <th>Address</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of studentList; let i = index">
+        <td>{{ i + 1 }}</td>
+        <td>{{ item.sname }}</td>
+        <td>{{ item.semail }}</td>
+        <td>{{ item.scontactno }}</td>
+        <td>{{ item.scgpa }}</td>
+        <td>{{ item.saddress }}</td>
+        <td>
+          <button (click)="onEdit(item)">Edit</button>
+          <button (click)="onDelete(item.stdId)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h6>New Employee</h6>
+  <form [formGroup]="studentForm">
+    <div>
+      <label>Name</label>
+      <input type="text" formControlName="sname" />
+      <div *ngIf="studentForm.controls['sname'].touched && studentForm.controls['sname'].invalid">
+        <div *ngIf="studentForm.controls['sname'].errors?.['required']">Name is required</div>
+        <div *ngIf="studentForm.controls['sname'].errors?.['minlength']">Name must be at least 3 characters</div>
+      </div>
+    </div>
+
+    <div>
+      <label>Email</label>
+      <input type="text" formControlName="semail" />
+      <div *ngIf="studentForm.controls['semail'].touched && studentForm.controls['semail'].invalid">
+        <div *ngIf="studentForm.controls['semail'].errors?.['required']">Email is required</div>
+        <div *ngIf="studentForm.controls['semail'].errors?.['email']">Email is invalid</div>
+      </div>
+    </div>
+
+    <div>
+      <label>Contact No</label>
+      <input type="text" formControlName="scontactno" />
+      <div *ngIf="studentForm.controls['scontactno'].touched && studentForm.controls['scontactno'].invalid">
+        <div *ngIf="studentForm.controls['scontactno'].errors?.['required']">Contact number is required</div>
+        <div *ngIf="studentForm.controls['scontactno'].errors?.['pattern']">Contact number must be 11 digits</div>
+      </div>
+    </div>
+
+     <div>
+      <label>CGPA</label>
+      <input type="text" formControlName="scgpa" step="0.01" />
+      <div *ngIf="studentForm.controls['scgpa'].touched && studentForm.controls['scgpa'].invalid">
+        <div *ngIf="studentForm.controls['scgpa'].errors?.['required']">CGPA is required</div>
+        <div *ngIf="studentForm.controls['scgpa'].errors?.['min'] || studentForm.controls['scgpa'].errors?.['max']">CGPA in-valid</div>
+      </div>
+    </div>
+
+    <div>
+      <label>Address</label>
+      <input type="text" formControlName="saddress" />
+      <div *ngIf="studentForm.controls['saddress'].touched && studentForm.controls['saddress'].invalid">
+        <div *ngIf="studentForm.controls['saddress'].errors?.['required']">Address is required</div>
+        <div *ngIf="studentForm.controls['saddress'].errors?.['minlength']">Address must be at least 5 characters</div>
+      </div>
+    </div>
+
+    <div>
+      <button type="button" (click)="resetForm()">Reset</button>
+      <button type="button" *ngIf="!isEditMode" (click)="onSave()">Save Employee</button>
+      <button type="button" *ngIf="isEditMode" (click)="onUpdate()">Update Employee</button>
+    </div>
+  </form>
+</div>

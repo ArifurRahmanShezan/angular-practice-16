@@ -1,0 +1,73 @@
+<div>
+  <h6>Employee List</h6>
+  <table>
+    <thead>
+      <tr>
+        <th>Serial No</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Contact</th>
+        <th>Address</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of employeeList; let i = index">
+        <td>{{ i + 1 }}</td>
+        <td>{{ item.name }}</td>
+        <td>{{ item.email }}</td>
+        <td>{{ item.contactno }}</td>
+        <td>{{ item.address }}</td>
+        <td>
+          <button (click)="onEdit(item)">Edit</button>
+          <button (click)="onDelete(item.empId)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h6>New Employee</h6>
+  <form [formGroup]="employeeForm">
+    <div>
+      <label>Name</label>
+      <input type="text" formControlName="name" />
+      <div *ngIf="employeeForm.controls['name'].touched && employeeForm.controls['name'].invalid">
+        <div *ngIf="employeeForm.controls['name'].errors?.['required']">Name is required</div>
+        <div *ngIf="employeeForm.controls['name'].errors?.['minlength']">Name must be at least 3 characters</div>
+      </div>
+    </div>
+
+    <div>
+      <label>Email</label>
+      <input type="text" formControlName="email" />
+      <div *ngIf="employeeForm.controls['email'].touched && employeeForm.controls['email'].invalid">
+        <div *ngIf="employeeForm.controls['email'].errors?.['required']">Email is required</div>
+        <div *ngIf="employeeForm.controls['email'].errors?.['email']">Email is invalid</div>
+      </div>
+    </div>
+
+    <div>
+      <label>Contact No</label>
+      <input type="text" formControlName="contactno" />
+      <div *ngIf="employeeForm.controls['contactno'].touched && employeeForm.controls['contactno'].invalid">
+        <div *ngIf="employeeForm.controls['contactno'].errors?.['required']">Contact number is required</div>
+        <div *ngIf="employeeForm.controls['contactno'].errors?.['pattern']">Contact number must be 11 digits</div>
+      </div>
+    </div>
+
+    <div>
+      <label>Address</label>
+      <input type="text" formControlName="address" />
+      <div *ngIf="employeeForm.controls['address'].touched && employeeForm.controls['address'].invalid">
+        <div *ngIf="employeeForm.controls['address'].errors?.['required']">Address is required</div>
+        <div *ngIf="employeeForm.controls['address'].errors?.['minlength']">Address must be at least 5 characters</div>
+      </div>
+    </div>
+
+    <div>
+      <button type="button" (click)="resetForm()">Reset</button>
+      <button type="button" *ngIf="!isEditMode" (click)="onSave()">Save Employee</button>
+      <button type="button" *ngIf="isEditMode" (click)="onUpdate()">Update Employee</button>
+    </div>
+  </form>
+</div>
