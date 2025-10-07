@@ -8,6 +8,10 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { StudentComponent } from './student/student.component';
 import { CitycardComponent } from './citycard/citycard.component';
 import { HomeComponent } from './home/home.component';
+import { TestComponent } from './test/test.component';
+import {HttpClientModule} from '@angular/common/http';
+
+
 
 @NgModule({
   declarations: [
@@ -15,12 +19,15 @@ import { HomeComponent } from './home/home.component';
     EmployeeComponent,
     StudentComponent,
     CitycardComponent,
-    HomeComponent
+    HomeComponent,
+    TestComponent,
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

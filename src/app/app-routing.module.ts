@@ -4,6 +4,7 @@ import { EmployeeComponent } from './employee/employee.component';
 import { StudentComponent } from './student/student.component';
 import { CitycardComponent } from './citycard/citycard.component';
 import { HomeComponent } from './home/home.component';
+import { TestComponent } from './test/test.component';
 
 const routes: Routes = [
   {
@@ -17,7 +18,11 @@ const routes: Routes = [
   },
   {
     path:'home',component:HomeComponent
-  }
+  },
+  {
+    path:'test',component:TestComponent
+  },
+  
 ];
 
 @NgModule({

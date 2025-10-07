@@ -1,0 +1,22 @@
+
+
+<table>
+    <tr>
+        <th>sr no</th>
+        <th>name</th>
+        <th>username</th>
+        <th>email</th>
+        <th>phone </th>
+        <th>website</th>
+    </tr>
+    <tr *ngFor="let user of userList;let i=index">
+        <td>{{i+1}}</td>
+        <td> {{user.name}}</td>
+        <td>{{user.username}}</td>
+        <td>{{user.email}}</td>
+        <td>{{user.phone}}</td>
+        <td>{{user.website}}</td>
+
+
+    </tr>
+</table>
