@@ -5,6 +5,7 @@ import { StudentComponent } from './student/student.component';
 import { CitycardComponent } from './citycard/citycard.component';
 import { HomeComponent } from './home/home.component';
 import { TestComponent } from './test/test.component';
+import { UserComponent } from './user/user.component';
 
 const routes: Routes = [
   {
@@ -22,6 +23,9 @@ const routes: Routes = [
   {
     path:'test',component:TestComponent
   },
+  {
+    path:'user', component:UserComponent
+  }
   
 ];
 

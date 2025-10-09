@@ -10,6 +10,7 @@ import { CitycardComponent } from './citycard/citycard.component';
 import { HomeComponent } from './home/home.component';
 import { TestComponent } from './test/test.component';
 import {HttpClientModule} from '@angular/common/http';
+import { UserComponent } from './user/user.component';
 
 
 
@@ -21,6 +22,7 @@ import {HttpClientModule} from '@angular/common/http';
     CitycardComponent,
     HomeComponent,
     TestComponent,
+    UserComponent,
 
   ],
   imports: [
