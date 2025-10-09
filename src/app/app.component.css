@@ -1,0 +1,53 @@
+/* Overall page layout */
+:host {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Segoe UI", Roboto, sans-serif;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #e0f7fa, #fff);
+  color: #333;
+  padding: 20px;
+}
+
+/* Title */
+h1 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #00796b;
+  text-align: center;
+}
+
+/* Navigation links */
+a {
+  display: inline;
+  text-decoration: none;
+  color: #fff;
+  background-color: #00796b;
+  padding: 10px 20px;
+  border-radius: 8px;
+  margin: 6px;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+/* Hover & active state */
+a:hover {
+  background-color: #004d40;
+  transform: translateY(-2px);
+}
+
+/* Active router link */
+a.active {
+  background-color: #26a69a;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+}
+
+/* Router outlet area */
+router-outlet {
+  display: block;
+  width: 100%;
+  margin-top: 30px;
+  border-top: 2px solid #00796b;
+  padding-top: 20px;
+}

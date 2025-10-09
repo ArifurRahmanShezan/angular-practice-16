@@ -26,20 +26,6 @@ export class UserComponent implements OnInit {
     this.GetAllUsers();
   }
 
-  // SubmitForm() {
-  //   var type=this.userForm.value.id==null?"Add":"Update";
-  //   this.service.AddUpdateUser(this.userForm.value,type).subscribe(data => {
-  //     if(type=='Add'){
-  //       alert('Added');
-  //     }
-  //     else{
-  //       alert('Updated');
-  //     }
-      
-  //     this.userForm.reset();
-  //     this.GetAllUsers(); 
-  //   });
-  // }
   SubmitForm() {
   const user = this.userForm.value;
 
@@ -67,7 +53,7 @@ export class UserComponent implements OnInit {
   }
    DeleteUserByID(ID:any) {
     this.service.DeleteUserByID(ID).subscribe(() => {
-      alert("USer deleted");
+      confirm("USer deleted");
       this.GetAllUsers(); 
     });
   }

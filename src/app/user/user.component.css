@@ -1,0 +1,147 @@
+/* Overall page styling */
+.container {
+  max-width: 800px;
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 25px 30px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Form Styling */
+form {
+  background-color: #f9fafb;
+  border-radius: 10px;
+  padding: 20px;
+  border: 1px solid #e5e7eb;
+}
+
+form .form-group {
+  margin-bottom: 15px;
+}
+
+form label {
+  font-weight: 600;
+  color: #374151;
+}
+
+form input {
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  padding: 10px;
+  font-size: 14px;
+  width: 100%;
+  transition: all 0.3s ease;
+}
+
+form input:focus {
+  border-color: #2563eb;
+  box-shadow: 0px 0px 5px rgba(37, 99, 235, 0.4);
+  outline: none;
+}
+
+/* Buttons */
+button {
+  border-radius: 8px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  padding: 8px 18px;
+}
+
+button.btn-primary {
+  background-color: #2563eb;
+  border: none;
+}
+
+button.btn-primary:hover {
+  background-color: #1d4ed8;
+}
+
+button.btn-secondary {
+  background-color: #6b7280;
+  border: none;
+}
+
+button.btn-secondary:hover {
+  background-color: #4b5563;
+}
+
+/* Table Styling */
+table {
+  width: 100%;
+  background-color: #ffffff;
+  border-collapse: collapse;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+table th {
+  background-color: #2563eb;
+  color: white;
+  text-align: center;
+  padding: 12px;
+}
+
+table td {
+  text-align: center;
+  padding: 10px;
+  vertical-align: middle;
+}
+
+table tr:nth-child(even) {
+  background-color: #f3f4f6;
+}
+
+table tr:hover {
+  background-color: #e0e7ff;
+  transition: 0.3s;
+}
+
+/* Edit & Delete Buttons in Table */
+table button {
+  border-radius: 6px;
+  padding: 5px 10px;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+table button:first-child {
+  background-color: #3b82f6;
+  margin-right: 6px;
+}
+
+table button:first-child:hover {
+  background-color: #2563eb;
+}
+
+table button:last-child {
+  background-color: #ef4444;
+}
+
+table button:last-child:hover {
+  background-color: #dc2626;
+}
+
+/* Header Styling */
+h3 {
+  margin-top: 30px;
+  text-align: center;
+  color: #1f2937;
+  font-weight: 600;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .container {
+    padding: 15px;
+  }
+
+  form, table {
+    font-size: 14px;
+  }
+
+  button {
+    font-size: 13px;
+  }
+}

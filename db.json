@@ -1,13 +1,6 @@
 {
   "users": [
     {
-      "id": "8ab5",
-      "name": "asxa",
-      "mobile": "asxassxs",
-      "email": "sxsa",
-      "age": "78"
-    },
-    {
       "id": "6edc",
       "name": "asxa",
       "mobile": "asxas",
@@ -20,13 +13,6 @@
       "mobile": "asxas",
       "email": "sxsa",
       "age": "33"
-    },
-    {
-      "id": "2fda",
-      "name": "www",
-      "mobile": "www",
-      "email": "dedwww",
-      "age": "34"
     }
   ]
 }
