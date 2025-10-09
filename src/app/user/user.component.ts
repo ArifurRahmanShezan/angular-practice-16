@@ -16,6 +16,7 @@ export class UserComponent implements OnInit {
 
   ngOnInit(): void {
     this.userForm = this.fb.group({
+      id: [null],
       name: [''],
       mobile: [''],
       email: [''],
@@ -25,13 +26,38 @@ export class UserComponent implements OnInit {
     this.GetAllUsers();
   }
 
+  // SubmitForm() {
+  //   var type=this.userForm.value.id==null?"Add":"Update";
+  //   this.service.AddUpdateUser(this.userForm.value,type).subscribe(data => {
+  //     if(type=='Add'){
+  //       alert('Added');
+  //     }
+  //     else{
+  //       alert('Updated');
+  //     }
+      
+  //     this.userForm.reset();
+  //     this.GetAllUsers(); 
+  //   });
+  // }
   SubmitForm() {
-    this.service.AddUpdateUser(this.userForm.value).subscribe(data => {
+  const user = this.userForm.value;
+
+  if(user.id) {
+    this.service.AddUpdateUser(user, 'Update').subscribe(() => {
+      alert('Updated');
+      this.userForm.reset();
+      this.GetAllUsers();
+    });
+  } else {
+    delete user.id; 
+    this.service.AddUpdateUser(user, 'Add').subscribe(() => {
       alert('Added');
       this.userForm.reset();
-      this.GetAllUsers(); 
+      this.GetAllUsers();
     });
   }
+}
 
   GetAllUsers() {
     this.service.GetAllUsers().subscribe(data => {
@@ -46,15 +72,14 @@ export class UserComponent implements OnInit {
     });
   }
   GetUserById(Id:any){
-    this.service.GetUserByID(Id).subscribe(data=>{
-      alert("get user successfully");
-      console.log("user details",data);
-      this.userForm.patchValue({
-        name:data.name,
-        email:data.email,
-        mobile:data.mobile,
-        age:data.age
-      })
-    })
-  }
+  this.service.GetUserByID(Id).subscribe(data=>{
+    this.userForm.patchValue({
+      id: data.id,     
+      name: data.name,
+      email: data.email,
+      mobile: data.mobile,
+      age: data.age
+    });
+  })
+}
 }

@@ -11,9 +11,15 @@ export class CommonService {
   constructor(private http:HttpClient) {
 
    }
-   AddUpdateUser(User: any): Observable<any> {
+   AddUpdateUser(User: any, type:any): Observable<any> {
+    if(type=='Add'){
+      return this.http.post(this.url + "users", User);
+    }
+    else{
+      return this.http.put(this.url + "users/"+ User.id,User);
+    }
     
-    return this.http.post(this.url + "users", User);
+    
 }
    GetAllUsers(): Observable<any> {
     
